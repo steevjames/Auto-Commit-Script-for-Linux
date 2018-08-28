@@ -1,7 +1,0 @@
-read number
-for (( c=0; c<number; c++ ))
-do  
-   echo '.' >> rndmfle.kzc
-   git add .
-   git commit -m "Commit Has Been Made"
-done

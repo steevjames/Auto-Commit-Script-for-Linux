@@ -1,0 +1,16 @@
+echo Input Number of Commits Needed : 
+read number
+for (( c=0; c<number; c++ ))
+do  
+   echo '.' >> rndmfle.kzc
+   git add .
+   git commit -m "Commit Has Been Made"
+done
+echo ""
+echo ""
+echo " $number commits have been made"
+rm rndmfle.kzc
+fi
+echo ""
+echo "Press Enter To Exit"
+read dd
