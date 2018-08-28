@@ -1,5 +1,11 @@
+#!/bin/bash
 echo Input Number of Commits Needed : 
 read number
+if ! [[ $number =~ ^[0-9]+$ ]]
+    then
+        echo "Sorry integers only"
+else
+git init
 for (( c=0; c<number; c++ ))
 do  
    echo '.' >> rndmfle.kzc
