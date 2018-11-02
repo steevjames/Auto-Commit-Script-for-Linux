@@ -1,22 +1,39 @@
 #!/bin/bash
-echo Input Number of Commits Needed : 
+echo Input Number of Previous Days to Randomly Commit : 
 read number
-if ! [[ $number =~ ^[0-9]+$ ]]
+echo Enter Maximum number of commits a day :
+read max
+if ! [[ $max =~ ^[0-9]+$ ]]
     then
         echo "Sorry integers only"
 else
-git init
-for (( c=0; c<number; c++ ))
-do  
-   echo '.' >> rndmfle.kzc
-   git add .
-   git commit -m "Commit Has Been Made"
-done
-echo ""
-echo ""
-echo " $number commits have been made"
-rm rndmfle.kzc
+    if ! [[ $number =~ ^[0-9]+$ ]]
+        then
+            echo "Sorry integers only"
+    else
+    git init
+    for (( c=0; c<number; c++ ))
+    do  
+        for (( d=0; d<max; d++ ))
+        do  
+            if [ "$[RANDOM%2]"=="1" ]
+            then
+                if [ $[RANDOM%2] == "1" ]
+                then
+                    echo '.' >> rndmfle.kzc
+                    git add .
+                    git commit -m "Commit Has Been Made" --date="$c"
+                fi
+            fi
+        done
+    done
+    echo ""
+    echo ""
+    echo " Commits have been backdated to the past $number days."
+    rm rndmfle.kzc
+    fi
 fi
 echo ""
 echo "Press Enter To Exit"
-read dd
+read dd 
+
